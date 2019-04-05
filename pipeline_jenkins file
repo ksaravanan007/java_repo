@@ -17,6 +17,6 @@ node {
    }
    stage("deploy")
    {
-       echo "deployed"
+       echo "deployed_successfully"
    }
 }
