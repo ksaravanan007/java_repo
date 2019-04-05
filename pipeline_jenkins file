@@ -1,0 +1,22 @@
+node {
+   stage("checkout")
+   {
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '4a2bc89d-afe9-4638-ac50-568a1d1d14b3', url: 'https://github.com/ksaravanan007/java_repo.git']]])
+   }
+   stage("build")
+   {
+       sh label: '', script: 'mvn install'
+   }
+   stage("unit test")
+   {
+       echo "test_done"
+   }
+   stage("install")
+   {
+       echo "installed"
+   }
+   stage("deploy")
+   {
+       echo "deployed"
+   }
+}
